@@ -77,8 +77,12 @@ curl localhost:8080
 //TODO
 ---
 
+### Reverse proxy configuration
+
 ### Url redirection to ip address
 
 ### Use of a vhost
 
 ### Redirects to wordpress on port 8000
+
+Note : test if your apache is reacheable (curl 10.0.99.11:8000)
