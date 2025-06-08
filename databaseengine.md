@@ -54,3 +54,18 @@ sudo systemctl start mysql
 sudo systemctl status mysql
 ```
 
+## Secure MySQL
+
+```
+sudo mysql_secure_installation
+```
+* Select medium (password strength policy)
+```
+
+* Remove anonymous users? Yes
+* Disallow root login remotely? Yes
+* Remove test database and access to it? Yes
+* Reload privilege tables now? Yes
+
+
+
