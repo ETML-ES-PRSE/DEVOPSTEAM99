@@ -31,5 +31,24 @@ CREATE USER 'wordpressuser'@'%' IDENTIFIED WITH mysql_native_password BY 'passwo
 
 * % -> must be replaced by the wordpress instance ip 10.0.X.12
 * 'password' -> must be replaced to satisfy the policy requirements
-* TO TEST the connection, install the mysql client on the wordpress instance and try to connect
- 
+
+## Test connectivity from Wordpress instance
+
+* Install Official MySQL Client from Oracle APT Repo (for MySQL 8.x)
+
+```
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.29-1_all.deb
+```
+
+* Install the APT Config Package:
+
+```
+sudo dpkg -i mysql-apt-config_0.8.29-1_all.deb
+```
+
+* Update the mysql-client
+
+```
+sudo apt update
+sudo apt install mysql-client
+```
