@@ -25,14 +25,26 @@ mysql_native_password=ON
 
 ## Create WordPress User
 
+* Create USER
+
 ```
-CREATE USER 'wordpressuser'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
+CREATE USER 'wordpressuser'@'<ip-wordpress-instance>' IDENTIFIED WITH mysql_native_password BY '<password>';
 ```
 
-* % -> must be replaced by the wordpress instance ip 10.0.X.12
-* 'password' -> must be replaced to satisfy the policy requirements
+* Allow the right permissions
+
+```
+GRANT ALL ON wordpress.* TO 'wordpressuser'@'<ip-wordpress-instance>';
+FLUSH PRIVILEGES;
+```
 
 ## Test connectivity from Wordpress instance
+
+* On the wordpress instance, add the dependencies
+
+```
+sudo apt install gnupg
+```
 
 * Install Official MySQL Client from Oracle APT Repo (for MySQL 8.x)
 
@@ -46,9 +58,15 @@ wget https://dev.mysql.com/get/mysql-apt-config_0.8.29-1_all.deb
 sudo dpkg -i mysql-apt-config_0.8.29-1_all.deb
 ```
 
-* Update the mysql-client
+* Update the repositories and install the mysql-client
 
 ```
 sudo apt update
 sudo apt install mysql-client
+```
+
+* Try to connect
+
+```
+mysql -u wordpressuser -p -h <ip-wordpress-instance>
 ```
