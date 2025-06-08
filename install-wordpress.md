@@ -13,6 +13,7 @@
 sudo mkdir /var/www/wordpress
 sudo chown -R $USER:$USER /var/www/wordpress
 sudo chmod -R 755 /var/www/wordpress/
+sudo echo "<html>Hello World !</htmld> >> /var/www/wordpress/index.html
 ```
 
 * Create and custom vhost config
@@ -22,13 +23,15 @@ sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-availab
 ```
 
 ```
-<VirtualHost *:80>
-  ...
-    ServerAdmin webmaster@localhost
-    DocumentRoot /var/www/html/wordpress
-   ...
-    ErrorLog ${APACHE_LOG_DIR}/wordpress-error.log
-    CustomLog ${APACHE_LOG_DIR}/wordpress-access.log combined
+<VirtualHost *:8000>
+        ServerName devopsteam99.cld.education
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html/wordpress/index.html
+        ErrorLog ${APACHE_LOG_DIR}/wordpress-error.log
+        CustomLog ${APACHE_LOG_DIR}/wordpress-access.log combined
+        <Directory /var/www/wordpress/>
+                AllowOverride All
+        </Directory>
 </VirtualHost>
 ``
 
