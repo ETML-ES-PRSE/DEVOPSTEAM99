@@ -33,3 +33,24 @@ sudo dpkg -i mysql-apt-config_0.8.30-1_all.deb
 ## Select MySql Installation
 
 * Select "MySql Server & Cluster
+
+## Launch setup
+
+```
+sudo apt install mysql-server -y
+```
+
+## Enable and start mysql
+
+```
+sudo systemctl enable mysql
+```
+
+```
+sudo systemctl start mysql
+```
+
+```
+sudo systemctl status mysql
+```
+
